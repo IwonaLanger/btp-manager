@@ -19,7 +19,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/config: d56daf5505d5e57d4ff6ab5cc97a8b1b7b205bf3e30395859fe7bd1fb398535e
+        checksum/config: 9151fddcdc21d09035e0a90216d4da136fb8a74d7326843712a0ff5c8f0cb374
         sidecar.istio.io/inject: "false"
       labels:
         control-plane: controller-manager
@@ -33,7 +33,7 @@ spec:
             - --upstream=http://127.0.0.1:8080/
             - --logtostderr=true
             - --v=10
-          image: "quay.io/brancz/kube-rbac-proxy:v0.15.0"
+          image: "quay.io/brancz/kube-rbac-proxy:v0.19.1"
           name: kube-rbac-proxy
           resources:
             limits:
@@ -52,7 +52,7 @@ spec:
             - secretRef:
                 name: sap-btp-operator-clusterid
                 optional: true
-          image: "ghcr.io/sap/sap-btp-service-operator/controller:v0.7.4"
+          image: "ghcr.io/sap/sap-btp-service-operator/controller:v0.8.0"
           imagePullPolicy: IfNotPresent
           name: manager
           ports:
